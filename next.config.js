@@ -25,7 +25,8 @@ module.exports = {
     apiSecret: 'f56518c168',
     signature: 'b87b904dd8d22586a7063c4cd68a6f0ab2b5a1ccf50d1d0238e084ab3f54f3e8',
     LOCAL_AUTH_URL: process.env.NODE_ENV == 'development' ? "http://localhost:3008" : "http://tripster.technorthstar.com/",
-    MONGODB_URI: process.env.NODE_ENV == 'development' ? 'mongodb://127.0.0.1:27017/?authMechanism=DEFAULT' : 'mongodb://tripster:tripSter@64.227.177.4:27017/?authMechanism=DEFAULT',
+    // mongodb://tripster:tripSter@64.227.177.4:27017/?authMechanism=DEFAULT
+    MONGODB_URI: process.env.NODE_ENV == 'development' ? 'mongodb+srv://tripster:Kuchnahi021!@cluster0.gkfwuva.mongodb.net/' : 'mongodb+srv://tripster:Kuchnahi021!@cluster0.gkfwuva.mongodb.net/',
     GOOGLE_CLIENT_ID: '1029873607722-n24phnvjrhkj69afndg7kq947l9eumt4.apps.googleusercontent.com',
     GOOGLE_CLIENT_SECRET: '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',
     SECRET: "wXljAz4IWrq1fhojbROM1VmGkLNNKayOxu7kN4Vqnhg=",
