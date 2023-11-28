@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #030303;
+}
+body {
+  scrollbar-width: thin;          /* "auto" or "thin" */
+  scrollbar-color: blue;   /* scroll thumb and track */ 
+}
+:focus {
+  outline: none;
+}
+input::placeholder {
+  opacity: 1;
+}
+.active-border {
+  position: relative;
+  top: 5px;
+}
+:disabled{
+  opacity:0.2
+}
+.hotel1 {
+  background: url("../../assets/hotel1.jpg");
+  background-size: cover;
+}
+.hotel2 {
+  background: url("../../assets/hotel2.jpg");
+  background-size: cover;
+}
+.hotel3 {
+  background: url("../../assets/hotel3.jpg");
+}
+.hotel4 {
+  background: url("../../assets/hotel4.jpg");
+}
+.hotel5 {
+  background: url("../../assets/hotel5.jpg");
+}
+.defaultHotel {
+  background: url("../../assets/defaultHotel.jpg");
+}
+.hotel {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bedroomBg1 {
+  background: url("../../assets/room1.jpg");
+}
+.bedroomBg2 {
+  background: url("../../assets/room2.png");
+}
+.bedroomBg3 {
+  background: url("../../assets/room3.jpg");
+}
+.detailImg1 {
+  background: url("../../assets/banner.jpg");
+}
+.detailImg2 {
+  background: url("../../assets/hotel3.jpg");
+}
+.detailImg3 {
+  background: url("../../assets/room1.jpg");
+}
+.detailImg4 {
+  background: url("../../assets/room2.png");
+}
+.detailImg5 {
+  background: url("../../assets/hotel4.jpg");
+}
+.bedroomBg{
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+}
+.destination1 {
+  background: url("../../assets/spain1.jpg");
+  background-position: center;
+}
+.destination2 {
+  background: url("../../assets/london.jpg");
+  background-position: 0px 0px;
+}
+.destination3 {
+  background: url("../../assets/srilanka.jpg");
+  background-position: 0px -226px;
+
+}
+.destination4 {
+  background: url("../../assets/india.jpg");
+  background-position: center;
+}
+.destination5 {
+  background: url("../../assets/japan.jpg");
+  background-position: 0px 0px;
+}
+.destination6 {
+  background: url("../../assets/thailand.jpg");
+  border-radius: 24px;
+  background-position: 0px -25px;
+
+}
+.destination {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+}
+.hotelDetailImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+}
+.cs-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.loader-bg{
+  height: 100vh;
+  position: absolute;
+  background: #FFFFFF;
+  width: 100%;
+  z-index: 9999999;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* change color of symbol on hover */
+
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+@media only screen and (max-width: 650px) {
+  img {
+   width:100%
+  }
+}
+
+.hide{
+  display:none
+    }
+    .show{
+      display:block
+    }

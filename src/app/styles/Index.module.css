@@ -1,0 +1,54 @@
+.heroBanner {
+    background: url("../../assets/banner.jpg");
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .heroBanner::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(3, 3, 3, 0.48);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+  }
+  .boxShaddow {
+    box-shadow: rgba(3, 3, 3, 0.08) 0px 1px 12px;
+  }
+  .searchBg::before {
+    content: "";
+    position: absolute;
+    background: #f8f8f8;
+    border-bottom: 1px solid #dedede;
+    width: 200px;
+    height: 100%;
+    left: -200px;
+    top: 1px;
+    bottom: 0px;
+  }
+  .formBorder::before {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #dedede;
+    width: 100%;
+    top: 0px;
+    right: -113px;
+  }
+  .roundedCheckboxx {
+    width: 20px;
+    height: 20px;
+    border-radius: 25%;
+    vertical-align: middle;
+    border: 1px solid rgb(133, 133, 133);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .roundedCheckbox:checked {
+    appearance: auto;
+    background-color: blue;
+  }
