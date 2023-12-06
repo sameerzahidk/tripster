@@ -40,21 +40,4 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*).(svg|ico|jpg|jpeg|png|gif|css|js|json)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-          {
-            key: 'Content-Encoding',
-            value: 'gzip',
-          },
-        ],
-      },
-    ];
-  },
 };
