@@ -38,6 +38,6 @@ module.exports = {
     STRIPE_KEY: "sk_test_51KbGjWASNWrmmoTBs7sFXuRcDAXNYPm98RFW0WnsAVcI3H5sdRXGYvqZQ4OKIeOPrSSN3xzfeEBkAGZ3lknEmM7C00AK2SCxOJ"
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
 };
