@@ -1,6 +1,7 @@
 // server.js
 
-const express = require('express');
+const { createServer } = require('http');
+const { parse } = require('url');
 const next = require('next');
 const compression = require('compression');
 
@@ -9,17 +10,15 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  const server = express();
-
-  // Apply Gzip compression using the compression middleware
-  server.use(compression());
-
-  server.all('*', (req, res) => {
-    return handle(req, res);
+  const server = createServer((req, res) => {
+    const parsedUrl = parse(req.url, true);
+    handle(req, res, parsedUrl);
   });
 
-  server.listen(3000, (err) => {
+  server.use(compression()); // Apply Gzip compression
+
+  server.listen(3008, (err) => {
     if (err) throw err;
-    console.log('> Ready on http://localhost:3000');
+    console.log('> Ready on http://localhost:3008');
   });
 });
