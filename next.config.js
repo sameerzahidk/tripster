@@ -40,4 +40,18 @@ module.exports = {
   images: {
     unoptimized: true,
   },
+  async headers() {
+    return [
+      {
+        // Enable Gzip compression for all static assets
+        source: '/(.*).(js|css|svg|png|jpg)',
+        headers: [
+          {
+            key: 'Content-Encoding',
+            value: 'gzip',
+          },
+        ],
+      },
+    ];
+  },
 };
