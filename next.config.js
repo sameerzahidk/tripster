@@ -43,9 +43,12 @@ module.exports = {
   async headers() {
     return [
       {
-        // Enable Gzip compression for all static assets
-        source: '/(.*).(js|css|svg|png|jpg)',
+        source: '/(.*).(svg|ico|jpg|jpeg|png|gif|css|js|json)',
         headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
           {
             key: 'Content-Encoding',
             value: 'gzip',
