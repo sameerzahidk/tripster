@@ -105,12 +105,12 @@ const[error,setError]=useState(false)
   
    
       const matchingOption = states?.find((option) =>
-                option?.name?.content.toLowerCase().startsWith( tempFilterData.destinationName.toString().toLowerCase())
+                option?.name.toLowerCase().startsWith( tempFilterData.destinationName.toString().toLowerCase())
               );
                 console.log(matchingOption)
                 
               if (matchingOption) {
-                setSelectedValue(matchingOption?.name?.content)
+                setSelectedValue(matchingOption?.name)
                 setSelectedOption(matchingOption);
 
                 console.log('Found object:', matchingOption);
@@ -140,7 +140,7 @@ const[error,setError]=useState(false)
   const handleInputChange = (event) => {
     console.log("here in input change")
     const isValueValid = states?.some((option) =>
-    option?.name?.content.toLowerCase().includes(event?.target?.value?.toString().toLowerCase())
+    option?.name.toLowerCase().includes(event?.target?.value?.toString().toLowerCase())
   );
 if(isValueValid == false){
 
@@ -336,17 +336,17 @@ console.log(error,"error")
                   console.log("in enter",event.target.value)
                   // Update the selected option
                   const matchingOption = states?.find((option) =>
-                  option?.name?.content.toLowerCase().startsWith(event?.target?.value?.toString().toLowerCase())
+                  option?.name.toLowerCase().startsWith(event?.target?.value?.toString().toLowerCase())
                 );
                   
                   
                 if (matchingOption) {
-                  setSelectedValue(matchingOption?.name?.content)
+                  setSelectedValue(matchingOption?.name)
                                  setSelectedOption(matchingOption);
                                  setFilterData({
                                   ...filterData,
                                   destinationCode: matchingOption !== null ? matchingOption.code : "",
-                                  destinationName: matchingOption !== null ? matchingOption?.name?.content : "",
+                                  destinationName: matchingOption !== null ? matchingOption?.name : "",
                                  
                                   countryName: matchingOption !== null ? countries[matchingOption?.countryCode]?.name : ''
                                 });

@@ -136,7 +136,7 @@ console.log(event,"evenet")
 
    
     const isValueValid = states?.some((option) =>
-    option?.name?.content.toLowerCase().includes(event?.target?.value?.toString().toLowerCase())
+    option?.name.toLowerCase().includes(event?.target?.value?.toString().toLowerCase())
   );
 // if(isValueValid == false){
 
@@ -406,7 +406,7 @@ console.log(v,"v")
     setFilterData({
       ...filterData,
       destinationCode: v !== null ? v.code : "",
-      destinationName: v !== null ? v?.name?.content : "",
+      destinationName: v !== null ? v?.name : "",
       adults: 1,
       rooms: 1,
       countryName: v !== null ? countries[v?.countryCode]?.name : ''
@@ -540,17 +540,17 @@ console.log(v,"v")
                 console.log("in enter",event.target.value)
                 // Update the selected option
                 const matchingOption = states?.find((option) =>
-                option?.name?.content.toLowerCase().startsWith(event?.target?.value?.toString().toLowerCase())
+                option?.name.toLowerCase().startsWith(event?.target?.value?.toString().toLowerCase())
               );
                 
                 
               if (matchingOption) {
-                setSelectedValue(matchingOption?.name?.content)
+                setSelectedValue(matchingOption?.name)
                                setSelectedOption(matchingOption);
                                setFilterData({
                                 ...filterData,
                                 destinationCode: matchingOption !== null ? matchingOption.code : "",
-                                destinationName: matchingOption !== null ? matchingOption?.name?.content : "",
+                                destinationName: matchingOption !== null ? matchingOption?.name : "",
                                
                                 countryName: matchingOption !== null ? countries[matchingOption?.countryCode]?.name : ''
                               });
@@ -581,7 +581,7 @@ console.log(v,"v")
             groupBy={(option) => option?.countryCode}
             // <TextField className={styles.inputText} {...params} />
             getOptionValue={(option) => option?.countryCode}
-            getOptionLabel={(option) => option?.name?.content}
+            getOptionLabel={(option) => option?.name}
             onInputChange={(e,v) => { setOpen(true); handleInputChange(e,v) }}
             onChange={handleChange}
             renderInput={(params) => {
@@ -602,7 +602,7 @@ console.log(v,"v")
               return (
 
                 <li key={params.key}>
-                  <GroupHeader><PlaceIcon />{countries[params.group].name}</GroupHeader>
+                  <GroupHeader><PlaceIcon />{countries[params.group]?.name}</GroupHeader>
                   <GroupItems>{params.children}</GroupItems>
                 </li>
 

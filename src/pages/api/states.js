@@ -3,7 +3,7 @@ import clientPromise from "@/lib/mongodb";
 export default async (req, res) => {
   const client = await clientPromise;
   const db = await client.db("db_tripster");
-    const collection = db.collection('destinations'); // Replace with your collection name
+    const collection = db.collection('cities'); // Replace with your collection name
 
   try {
     // const headersJson = JSON.stringify(req.headers)
