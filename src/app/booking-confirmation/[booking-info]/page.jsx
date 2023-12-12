@@ -1,6 +1,5 @@
 "use client";
 import React, { use, useEffect, useState } from "react";
-
 import BookingDetails from "../../components/BookingConfirmation/BookingDetails";
 import Confirmation from "../../components/BookingConfirmation/Confirmation";
 import styles from "../../styles/style";
@@ -75,6 +74,27 @@ const page = () => {
     setRefundSuccess(refund)
     return refund;
   };
+  const sendEmail = async () => {
+    try {
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'zohaibkhan4822@gmail.com', // Replace with the recipient's email
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+      } else {
+        console.error('Error sending email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
   const bookHotels = async () => {
     setIsLoading(true);
     //const storedData = sessionStorage.getItem('bookingData');
@@ -100,14 +120,13 @@ const page = () => {
           age: parseInt(item.age),
         });
       });
-
       const response = await fetch("/api/bookHotel", {
         method: "POST",
 
         headers: {
           "X-Signature": signature,
         },
-
+        
         body: JSON.stringify({
           firstName: personalData[0],
           lastName: personalData[0],
@@ -118,7 +137,7 @@ const page = () => {
         }),
       })
         .then((res) => res.json())
-        .then((res) => {
+        .then(async (res) => {
           console.log(res?.hotels, "res hotels");
           if (res?.hotels?.booking) {
             setBookingData(res.hotels.booking);
@@ -129,11 +148,12 @@ const page = () => {
 
             setBookingSuccess(true);
             setIsLoading(false);
+            sendEmail();
           } else if (res?.hotels?.error) {
+            console.log(res?.hotels?.error);
             setBookingData(res.hotels.error);
             setBookingSuccess(false);
             const refunds = refundGeneration();
-
             console.log(refunds, "Refunds");
            
             setIsLoading(false);
